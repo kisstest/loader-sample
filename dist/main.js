@@ -1,8 +1,10 @@
 /*!
  * 
- *         Build Date: 2020-10-2 13:14:37
+ *         Build Date: 2020-10-13 20:34:50
  * 
- *         Commit: kisstest
+ *         Commit Version: 8c1cbf0
+ * 
+ *         Author: kisstest
  * 
  *       
  */
@@ -102,7 +104,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/app.css */ \"./src/app.css\");\n/* harmony import */ var _src_app_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_app_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _src_nyancat_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/nyancat.jpg */ \"./src/nyancat.jpg\");\n// import math from \"./math.js\"\n\n\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  document.body.innerHTML = `\n    <img src=\"${_src_nyancat_jpg__WEBPACK_IMPORTED_MODULE_1__[\"default\"]}\" />\n  `\n})\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/app.css */ \"./src/app.css\");\n/* harmony import */ var _src_app_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_app_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _src_nyancat_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/nyancat.jpg */ \"./src/nyancat.jpg\");\n// import math from \"./math.js\"\n\n\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  document.body.innerHTML = `\n    <img src=\"${_src_nyancat_jpg__WEBPACK_IMPORTED_MODULE_1__[\"default\"]}\" />\n  `\n});\n\nconsole.log(2);\nconsole.log(\"https://dev.api.com\");\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -173,7 +175,7 @@ eval("var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtim
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"./dist/bg.png?5c6d3b633991b51295c68b34d8b94c8b\");\n\n//# sourceURL=webpack:///./src/bg.png?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"bg.png?5c6d3b633991b51295c68b34d8b94c8b\");\n\n//# sourceURL=webpack:///./src/bg.png?");
 
 /***/ }),
 
