@@ -10,7 +10,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    main: './index.js'
+    // main: './index.js'
+    main: './app.js'
   },
   output: {
     path: path.resolve('./dist'),
@@ -34,7 +35,12 @@ module.exports = {
           name: '[name].[ext]?[hash]',
           limit: 20000, // 2kb
         }
-      }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
     ]
   },
   plugins: [
