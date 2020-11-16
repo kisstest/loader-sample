@@ -6,16 +6,33 @@ const childProcess = require("child_process")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const apiMocker = require("connect-api-mocker")
 
 module.exports = {
   mode: 'development',
   entry: {
-    // main: './index.js'
-    main: './app.js'
+    main: './index.js'
+    // main: './app.js'
   },
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js'
+  },
+  devServer: {
+    overlay: true,
+    stats: "errors-only",
+    port: 9001,
+    before: (app) => {
+      // app.get('/api/users', (req, res) => {
+      //   res.json([
+      //     { keyword: "이탈리아" },
+      //     { keyword: "세프의요리" },
+      //     { keyword: "제철" },
+      //     { keyword: "홈파티" },
+      //   ])
+      // })
+      app.use(apiMocker('/api', '/mocks/api'))
+    }
   },
   module: {
     rules: [
@@ -68,9 +85,9 @@ module.exports = {
         removeComments: true, // 주석 제거
       } : false,
     }),
-    new CleanWebpackPlugin(),
-    process.env.NODE_ENV === 'production' 
-    ? new MiniCssExtractPlugin()
-    : []
+    // new CleanWebpackPlugin(),
+    // process.env.NODE_ENV === 'production' 
+    // ? new MiniCssExtractPlugin()
+    // : []
   ]
 }

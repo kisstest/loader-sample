@@ -1,11 +1,13 @@
-// import math from "./math.js"
-import './src/app.css'
-import nyncat from './src/nyancat.jpg'
+import axios from 'axios';
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.innerHTML = `
-    <img src="${nyncat}" />
-  `
+document.addEventListener('DOMContentLoaded', async () => {
+  const temp = await axios.get('/api/users');
+
+  document.body.innerHTML = temp.data
+  .map(user => {
+    return `<div>${user.keyword}</div>`;
+  })
+  .join('\n');
 });
 
 console.log(TWO);
