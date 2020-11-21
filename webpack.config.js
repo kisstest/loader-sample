@@ -11,8 +11,8 @@ const apiMocker = require("connect-api-mocker")
 module.exports = {
   mode: 'development',
   entry: {
-    main: './index.js'
-    // main: './app.js'
+    // main: './index.js'
+    main: './src/app.js'
   },
   output: {
     path: path.resolve('./dist'),
@@ -23,16 +23,9 @@ module.exports = {
     stats: "errors-only",
     port: 9001,
     before: (app) => {
-      // app.get('/api/users', (req, res) => {
-      //   res.json([
-      //     { keyword: "이탈리아" },
-      //     { keyword: "세프의요리" },
-      //     { keyword: "제철" },
-      //     { keyword: "홈파티" },
-      //   ])
-      // })
       app.use(apiMocker('/api', '/mocks/api'))
-    }
+    },
+    hot: true,
   },
   module: {
     rules: [
