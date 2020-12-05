@@ -1,10 +1,10 @@
 import form from './form';
 import result from './result';
 
-let resultEl;
+let resultEl, formEl;
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const formEl = document.createElement('div');
+  formEl = document.createElement('div');
   formEl.innerHTML = form.render();
   document.body.appendChild(formEl);
 
@@ -19,6 +19,10 @@ if (module.hot) {
   module.hot.accept('./result', async () => {
     console.log('result 모듈 변경됨');
     resultEl.innerHTML = await result.render();
-    document.body.appendChild(resultEl);
+  });
+
+  module.hot.accept('./form', async () => {
+    console.log('form 모듈 변경됨');
+    formEl.innerHTML = await form.render();
   });
 }
