@@ -1,5 +1,6 @@
 import form from './form';
 import result from './result';
+import './app.css';
 
 let resultEl, formEl;
 
