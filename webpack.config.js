@@ -36,13 +36,14 @@ module.exports = {
       mode === "production"
         ? [
           new OptimizeCSSAssetsPlugin(),
-          new TerserPlugin({
-            terserOptions: {
-              compress: {
-                drop_console: true, // 콘솔 로그를 제거한다
-              },
-            },
-          }),
+          // NOTE: TerserPlugin 설정되지 않으면 dist/main.js가 난독화되지 않음
+          // new TerserPlugin({
+          //   terserOptions: {
+          //     compress: {
+          //       drop_console: true, // 콘솔 로그를 제거한다
+          //     },
+          //   },
+          // }),
           ]
         : [],
   },
