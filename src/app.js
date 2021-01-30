@@ -1,5 +1,5 @@
 import form from './form';
-// import result from './result';
+import result from './result';
 import './app.css';
 
 let resultEl, formEl;
@@ -9,13 +9,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   formEl.innerHTML = form.render();
   document.body.appendChild(formEl);
 
-  import('./result.js').then(module => {
-    const result = module.default;
-    resultEl = document.createElement('div');
-    resultEl.innerHTML = await result.render();
-    document.body.appendChild(resultEl);
-  });
-
+  resultEl = document.createElement('div');
+  resultEl.innerHTML = await result.render();
+  document.body.appendChild(resultEl);
 });
 
 console.log('app.js');

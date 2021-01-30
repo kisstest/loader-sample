@@ -9,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const apiMocker = require("connect-api-mocker");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const mode = process.env.NODE_ENV || "development"; // 기본값을 development로 설정
 
@@ -17,7 +18,7 @@ module.exports = {
   entry: {
     // main: './index.js'
     main: './src/app.js',
-    result: './src/result.js',
+    // result: './src/result.js',
   },
   output: {
     path: path.resolve('./dist'),
@@ -31,6 +32,9 @@ module.exports = {
       app.use(apiMocker('/api', '/mocks/api'))
     },
     hot: true,
+  },
+  externals: {
+    axios: 'axios',
   },
   optimization: {
     minimizer:
@@ -47,9 +51,9 @@ module.exports = {
           }),
           ]
         : [],
-      splitChunks: {
-        chunks: 'all',
-      },
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
   },
   module: {
     rules: [
@@ -106,5 +110,14 @@ module.exports = {
     ...(process.env.NODE_ENV === "production"
       ? [new MiniCssExtractPlugin({ filename: `[name].css` })]
       : []),
+    // 변경 (이렇게 변경하세요)
+    new CopyPlugin({
+      patterns: [ // patterns 키를 추가합니다.
+        {
+          from: "./node_modules/axios/dist/axios.min.js",
+          to: "./axios.min.js", // 목적지 파일에 들어간다
+        },
+      ]
+    }),
   ]
 }
