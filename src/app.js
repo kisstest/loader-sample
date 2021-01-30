@@ -1,5 +1,5 @@
 import form from './form';
-import result from './result';
+// import result from './result';
 import './app.css';
 
 let resultEl, formEl;
@@ -9,10 +9,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   formEl.innerHTML = form.render();
   document.body.appendChild(formEl);
 
-  resultEl = document.createElement('div');
-  resultEl.innerHTML = await result.render();
-  document.body.appendChild(resultEl);
+  import('./result.js').then(module => {
+    const result = module.default;
+    resultEl = document.createElement('div');
+    resultEl.innerHTML = await result.render();
+    document.body.appendChild(resultEl);
+  });
+
 });
+
+console.log('app.js');
 
 if (module.hot) {
   console.log('핫 모듈 켜짐');

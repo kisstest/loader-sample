@@ -16,7 +16,8 @@ module.exports = {
   mode,
   entry: {
     // main: './index.js'
-    main: './src/app.js'
+    main: './src/app.js',
+    result: './src/result.js',
   },
   output: {
     path: path.resolve('./dist'),
@@ -37,15 +38,18 @@ module.exports = {
         ? [
           new OptimizeCSSAssetsPlugin(),
           // NOTE: TerserPlugin 설정되지 않으면 dist/main.js가 난독화되지 않음
-          // new TerserPlugin({
-          //   terserOptions: {
-          //     compress: {
-          //       drop_console: true, // 콘솔 로그를 제거한다
-          //     },
-          //   },
-          // }),
+          new TerserPlugin({
+            terserOptions: {
+              compress: {
+                drop_console: true, // 콘솔 로그를 제거한다
+              },
+            },
+          }),
           ]
         : [],
+      splitChunks: {
+        chunks: 'all',
+      },
   },
   module: {
     rules: [
